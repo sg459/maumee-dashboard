@@ -1,5 +1,6 @@
 import streamlit as st
 from data_access.sample_data import load_sample_data
+from data_access.metadata import load_variable_dictionary
 
 st.set_page_config(page_title="Maumee Dashboard", layout="wide")
 
@@ -8,6 +9,8 @@ st.caption("Internal dashboard prototype for field-level crop, weather, and hist
 
 # Load data
 data = load_sample_data()
+variable_dict = load_variable_dictionary()
+variable_labels = [v["label"] for v in variable_dict]
 
 with st.sidebar:
     st.header("Filters")
@@ -16,7 +19,7 @@ with st.sidebar:
     year = st.selectbox("Year", sorted(data["year"].unique()))
     crop_options = ["All"] + sorted(data["crop"].unique())
     crop = st.selectbox("Crop", crop_options)
-    variable = st.selectbox("Variable", ["Precipitation"])
+    variable = st.selectbox("Variable", variable_labels)
 
 filtered = data[(data["state"] == state) & (data["year"] == year)]
 
