@@ -19,7 +19,7 @@ Internal dashboard project for field-level crop, weather, and historical data ex
 
    This project requires a large geospatial data file that is not stored in GitHub due to file size limits.
 
-   - Copy `OH_regrow_fieldID_geometry.parquet` from your shared drive to:
+   - Copy `OH_regrow_fieldID_geometry.parquet` from your shared drive (or the wherever it's stored e.g., Teams) to:
      ```
      data/raw_local/OH_regrow_fieldID_geometry.parquet
      ```
